@@ -26,12 +26,10 @@ class CreateAppointmentService {
     }
 
     // criamos a instancia do objeto Appointment por conta disso não utilizamos await
-    const appointment = appointmentsRepository.create({
+    const appointment = await appointmentsRepository.create({
       provider_id,
       date: appointmentDate,
     });
-
-    await appointmentsRepository.save(appointment);
 
     return appointment;
   }
